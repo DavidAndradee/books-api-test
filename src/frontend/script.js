@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api/books';
+const api_url = 'http://localhost:5050/api/books';
 
 // Função para adicionar um livro
 document.getElementById('bookForm').addEventListener('submit', async (e) => {
@@ -19,7 +19,7 @@ document.getElementById('bookForm').addEventListener('submit', async (e) => {
     };
 
     try {
-        const response = await fetch(API_URL, {
+        const response = await fetch(api_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,11 +38,11 @@ document.getElementById('bookForm').addEventListener('submit', async (e) => {
 // Função para carregar a lista de livros
 async function loadBooks() {
     try {
-        const response = await fetch(API_URL);
+        const response = await fetch(api_url);
         const books = await response.json();
         books.forEach(addBookToList);
     } catch (error) {
-        alert('Erro ao carregar os livros.');
+        alert('Erro ao carregar os livros. HELP');
     }
 }
 
@@ -61,7 +61,7 @@ function addBookToList(book) {
 async function deleteBook(id) {
     if (confirm('Tem certeza que deseja deletar este livro?')) {
         try {
-            await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+            await fetch(`${api_url}/${id}`, { method: 'DELETE' });
             alert('Livro deletado com sucesso!');
             location.reload();
         } catch (error) {

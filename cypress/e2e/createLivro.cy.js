@@ -11,7 +11,7 @@ describe('/books POST', () => {
   it('create book', () => {
 
     const book = {
-      "title": "Senhor dos anais",
+      "title": "Senhor dos Anéis",
       "author": "J.R.R. Tolkien",
       "publisher": "HarperCollins",
       "year": 1954,
